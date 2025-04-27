@@ -1,0 +1,120 @@
+/* ─── Layout ─────────────────────────────────────────────── */
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: 2rem;
+}
+
+@media (max-width: 600px) {
+	.container {
+		flex-direction: column;
+	}
+}
+
+/* ─── Image Section ──────────────────────────────────────── */
+.imageWrapper {
+	flex: 1;
+	min-width: 300px;
+	display: flex;
+	justify-content: center;
+}
+
+.image {
+	width: 100%;
+	max-width: 500px;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	border-radius: 20px;
+}
+
+.loaded {
+	opacity: 1;
+}
+
+.imagePlaceholder {
+	background: #333;
+	color: #fff;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+}
+
+/* ─── Accordion Basics ──────────────────────────────────── */
+.accordion {
+	flex: 1;
+	min-width: 300px;
+}
+
+.subheading {
+	color: var(--Text-primary, #070707);
+	/* web/h2 */
+	font-family: 'Golos Text';
+	font-size: var(--font-size-H2, 14px);
+	font-style: normal;
+	font-weight: 700;
+	line-height: 120%; /* 16.8px */
+	letter-spacing: 4.9px;
+	text-transform: uppercase;
+}
+
+.item + .item {
+	margin-top: 1rem;
+}
+
+/* ─── Headers with animated gradient ─────────────────────── */
+.header {
+	font-family: 'Golos Text';
+	background: linear-gradient(
+			90deg,
+			#e00a24 0%,
+			#aa0707 33.93%,
+			#4a177f 67.85%,
+			#280a33 100%
+		)
+		no-repeat;
+	background-size: 0% 100%; /* hide gradient initially */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: #111; /* fallback solid color */
+	border: none;
+	font-size: 28px;
+	font-weight: 700;
+	cursor: pointer;
+	padding: 0;
+	text-align: left;
+	transition: background-size 1s ease, -webkit-text-fill-color 0.4s ease,
+		font-size 0.4s ease;
+}
+
+.headerActive {
+	background-size: 100% 100%; /* reveal gradient */
+	-webkit-text-fill-color: transparent; /* show gradient through text */
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-align: left;
+}
+
+/* ─── Sliding content ───────────────────────────────────── */
+.content {
+	overflow: hidden;
+	transition: max-height 0.4s ease, margin-top 0.4s ease, padding-left 0.4s ease;
+}
+
+.contentOpen {
+	max-height: 200px; /* adjust if any desc is longer */
+}
+
+.content p {
+	margin: 0;
+	color: var(--Text-primary, #070707);
+	/* web/body-small */
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%; /* 24px */
+}
