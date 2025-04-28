@@ -84,8 +84,8 @@
 	cursor: pointer;
 	padding: 0;
 	text-align: left;
-	transition: background-size 1s ease, -webkit-text-fill-color 0.4s ease,
-		font-size 0.4s ease;
+	transition: background-size 0.6s ease-out, -webkit-text-fill-color 0.4s ease-out,
+		font-size 0.4s ease-out;
 }
 
 .headerActive {
