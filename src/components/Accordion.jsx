@@ -25,13 +25,13 @@ const ITEMS = [
 		id: 'ads',
 		title: 'Advertising & Media',
 		desc: 'RingoFire’s Advertising & Media strategies deliver full-funnel campaigns that combine creative impact with precise audience targeting. We plan and execute integrated programs—including search, video, retail and social media, OTT/CTV, out-of-home and more—to reach consumers where they live, shop, and scroll, driving awareness, traffic, and ROI through programmatic buying, paid social, and retail promotions.',
-		img: 'https://ringofire.com/wp-content/uploads/2025/10/Ads-Media_result.webp',
+		img: 'https://ringofire.com/wp-content/uploads/2025/10/Ads-Media-1_result.webp',
 	},
 	{
 		id: 'web',
 		title: 'Website Design & Development',
 		desc: "Our Website Development & Design team creates visually striking, high-performing websites. We use strategic UX, responsive design, and SEO best practices to deliver digital experiences that drive results. Need a product showcase, e-commerce platform, or brand site? RingoFire builds web solutions that define your brand identity and boost your online presence.",
-		img: 'https://ringofire.com/wp-content/uploads/2025/10/Web_result.webp',
+		img: 'https://ringofire.com/wp-content/uploads/2025/10/Web-1_result.webp',
 	},
 	{
 		id: 'field',
