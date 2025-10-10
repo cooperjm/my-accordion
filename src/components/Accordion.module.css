@@ -91,6 +91,7 @@
 	-webkit-text-fill-color: #111 !important;
 	transition: background-size 0.6s ease-out, -webkit-text-fill-color 0.4s ease-out !important;
 	white-space: normal !important;
+	line-height: 100% !important;
 }
 
 .heading.active {
