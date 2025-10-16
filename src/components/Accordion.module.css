@@ -23,6 +23,7 @@
 .image {
 	width: 100% !important;
 	max-width: 500px !important;
+	max-height: 500px !important;
 	opacity: 0 !important;
 	transition: opacity 0.5s ease !important;
 	border-radius: 20px !important;
@@ -62,52 +63,86 @@
 	text-transform: uppercase !important;
 }
 
-.item + .item {
+/* ─── Spacing between panels ───────────────────────────── */
+.panel + .panel {
 	margin-top: 1rem !important;
 }
 
-/* ─── Headers with animated gradient ─────────────────────── */
-.header {
-	font-family: 'Golos Text' !important;
-	background: linear-gradient(
-			90deg,
-			#e00a24 0%,
-			#aa0707 33.93%,
-			#4a177f 67.85%,
-			#280a33 100%
-		)
-		no-repeat !important;
-	background-size: 0% 100% !important; /* hide gradient initially */
-	-webkit-background-clip: text !important;
-	-webkit-text-fill-color: #111 !important; /* fallback solid color */
-	border: none !important;
-	font-size: 28px !important;
-	font-weight: 700 !important;
-	cursor: pointer !important;
+/* ─── Button/Header with animated gradient ─────────────────────── */
+.heading {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	background: none !important;
+	border: 0 !important;
 	padding: 0 !important;
+	width: 100% !important;
 	text-align: left !important;
-	transition: background-size 0.6s ease-out, -webkit-text-fill-color 0.4s ease-out,
-		font-size 0.4s ease-out !important;
+	cursor: pointer !important;
+	display: block !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	font-family: 'Golos Text' !important;
+	font-size: clamp(24px, 6vw, 28px) !important;
+	font-weight: 700 !important;
+	background-image: linear-gradient(
+		90deg,
+		#e00a24 0%,
+		#aa0707 33.93%,
+		#4a177f 67.85%,
+		#280a33 100%
+	) !important;
+	background-repeat: no-repeat !important;
+	background-size: 0% 100% !important;
+	-webkit-background-clip: text !important;
+	background-clip: text !important;
+	-webkit-text-fill-color: #111 !important;
+	transition: background-size 0.6s ease-out, -webkit-text-fill-color 0.4s ease-out !important;
+	white-space: normal !important;
+	line-height: 100% !important;
 }
 
-.headerActive {
-	background-size: 100% 100% !important; /* reveal gradient */
-	-webkit-text-fill-color: transparent !important; /* show gradient through text */
-	font-size: 48px !important;
-	font-style: normal !important;
-	font-weight: 700 !important;
-	line-height: normal !important;
-	text-align: left !important;
+.heading.active {
+	background-size: 100% 100% !important;
+	-webkit-text-fill-color: transparent !important;
+	font-size: clamp(34px, 6vw, 48px) !important;
+}
+
+/* ─── Optional text span inside the button ───────────────── */
+.headingText {
+	line-height: 1.2 !important;
+}
+
+/* ─── Chevron caret that rotates when panel is open ───────── */
+.chevron {
+	margin-left: 8px !important;
+	transform: rotate(90deg) !important;
+	transition: transform 0.25s ease !important;
+	font-size: 24px !important;
+}
+
+.open .chevron {
+	transform: rotate(270deg) !important;
 }
 
 /* ─── Sliding content ───────────────────────────────────── */
 .content {
 	overflow: hidden !important;
-	transition: max-height 0.4s ease, margin-top 0.4s ease, padding-left 0.4s ease !important;
+	max-height: 0 !important;
+	margin-top: 0 !important;
+	padding-left: 0 !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+	transition: max-height 0.4s ease, margin-top 0.4s ease, padding-left 0.4s ease,
+		opacity 0.25s ease !important;
 }
 
 .contentOpen {
-	max-height: 200px !important; /* adjust if any desc is longer */
+	max-height: 500px !important;
+	margin-top: 0.5rem !important;
+	padding-left: 1rem !important;
+	opacity: 1 !important;
+	visibility: visible !important;
 }
 
 .content p {
@@ -119,114 +154,4 @@
 	font-style: normal !important;
 	font-weight: 400 !important;
 	line-height: 150% !important; /* 24px */
-}
-
-
-/* ─── Bridge JSX ↔ CSS class names (append to bottom) ───── */
-
-/* The JSX uses .panel, not .item */
-.panel + .panel { margin-top: 1rem !important; }
-
-/* Reset native button styling and apply your gradient headline look
-   (mirrors your existing .header / .headerActive styles) */
-.heading {
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  background: none !important;
-  border: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  text-align: left !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  font: inherit !important;
-
-  /* copy of your .header gradient text setup */
-  font-family: 'Golos Text' !important;
-  font-size: 28px !important;
-  font-weight: 700 !important;
-  background-image: linear-gradient(90deg,#e00a24 0%,#aa0707 33.93%,#4a177f 67.85%,#280a33 100%) !important;
-  background-repeat: no-repeat !important;
-  background-size: 0% 100% !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: #111 !important;
-  transition: background-size 0.6s ease-out, -webkit-text-fill-color 0.4s ease-out, font-size 0.4s ease-out !important;
-}
-
-
-
-/* Optional text span inside the button */
-.headingText { line-height: 1.2 !important; }
-
-/* Chevron caret that rotates when panel is open */
-.chevron {
-  margin-left: 8px !important;
-  transform: rotate(90deg) !important;
-  transition: transform 0.25s ease !important;
-  font-size: 24px !important;
-}
-
-/* JSX adds .open to the panel container */
-.open .chevron { transform: rotate(270deg) !important; }
-
-/* Ensure body text is hidden until opened */
-.content {
-  overflow: hidden !important;
-  max-height: 0 !important;          /* collapsed by default */
-  margin-top: 0 !important;
-  padding-left: 0 !important;
-  opacity: 0 !important;             /* invisible while collapsed */
-  visibility: hidden !important;
-  transition:
-    max-height 0.4s ease,
-    margin-top 0.4s ease,
-    padding-left 0.4s ease,
-    opacity 0.25s ease !important;
-}
-
-.contentOpen {
-  max-height: 200px !important;      /* raise if any paragraph is longer */
-  margin-top: 0.5rem !important;
-  padding-left: 1rem !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* If you previously added chevron styles, you can keep or delete them —
-   the JSX no longer renders a chevron element. */
-
-/* Spacing between panels, matching your original ".item + .item" intent */
-.panel + .panel { margin-top: 1rem !important; }
-
-/* Button reset + gradient headline look (kept from earlier bridge) */
-.heading {
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  background: none !important;
-  border: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  text-align: left !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  font: inherit !important;
-
-  font-family: 'Golos Text' !important;
-  font-size: 28px !important;
-  font-weight: 700 !important;
-  background-image: linear-gradient(90deg,#e00a24 0%,#aa0707 33.93%,#4a177f 67.85%,#280a33 100%) !important;
-  background-repeat: no-repeat !important;
-  background-size: 0% 100% !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: #111 !important;
-  transition: background-size 0.6s ease-out, -webkit-text-fill-color 0.4s ease-out, font-size 0.4s ease-out !important;
-}
-.active {
-  background-size: 100% 100% !important;
-  -webkit-text-fill-color: transparent !important;
-  font-size: 37px !important;
 }
