@@ -45,7 +45,7 @@
 	border-radius: 8px !important;
 }
 
-/* ─── Accordion Basics ──────────────────────────────────── */
+/* ─── Accordion Container ───────────────────────────────── */
 .accordion {
 	flex: 1 !important;
 	min-width: 300px !important;
@@ -53,17 +53,17 @@
 
 .subheading {
 	color: var(--Text-primary, #070707) !important;
-	/* web/h2 */
 	font-family: 'Golos Text' !important;
 	font-size: var(--font-size-H2, 14px) !important;
 	font-style: normal !important;
 	font-weight: 700 !important;
-	line-height: 120% !important; /* 16.8px */
+	line-height: 120% !important;
 	letter-spacing: 4.9px !important;
 	text-transform: uppercase !important;
 }
 
 /* ─── Spacing between panels ───────────────────────────── */
+/* ─── Panel Spacing ─────────────────────────────────────── */
 .panel + .panel {
 	margin-top: 1rem !important;
 }
@@ -73,6 +73,10 @@
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	-moz-appearance: none !important;
+/* ─── Heading Button with Gradient ──────────────────────── */
+.heading {
+	-webkit-appearance: none !important;
+	appearance: none !important;
 	background: none !important;
 	border: 0 !important;
 	padding: 0 !important;
@@ -92,6 +96,7 @@
 		#4a177f 67.85%,
 		#280a33 100%
 	) !important;
+	background-image: linear-gradient(90deg, #e00a24 0%, #aa0707 33.93%, #4a177f 67.85%, #280a33 100%) !important;
 	background-repeat: no-repeat !important;
 	background-size: 0% 100% !important;
 	-webkit-background-clip: text !important;
@@ -125,7 +130,29 @@
 	transform: rotate(270deg) !important;
 }
 
-/* ─── Sliding content ───────────────────────────────────── */
+.heading.active {
+	background-size: 100% 100% !important;
+	-webkit-text-fill-color: transparent !important;
+	font-size: clamp(34px, 6vw, 48px) !important;
+}
+
+.headingText {
+	line-height: 1.2 !important;
+}
+
+/* ─── Chevron Icon ──────────────────────────────────────── */
+.chevron {
+	margin-left: 8px !important;
+	transform: rotate(90deg) !important;
+	transition: transform 0.25s ease !important;
+	font-size: 24px !important;
+}
+
+.open .chevron {
+	transform: rotate(270deg) !important;
+}
+
+/* ─── Content Area ──────────────────────────────────────── */
 .content {
 	overflow: hidden !important;
 	max-height: 0 !important;
@@ -148,10 +175,11 @@
 .content p {
 	margin: 0 !important;
 	color: var(--Text-primary, #070707) !important;
-	/* web/body-small */
 	font-family: Poppins !important;
 	font-size: 16px !important;
 	font-style: normal !important;
 	font-weight: 400 !important;
 	line-height: 150% !important; /* 24px */
+}
+	line-height: 150% !important;
 }

@@ -43,7 +43,7 @@ const ITEMS = [
 		id: 'pr',
 		title: 'Public Relations',
 		desc: 'Our Public Relations team positions brands as credible leaders through strategic storytelling. We secure press coverage, influencer engagement, and brand alliances that shape public perception. From managing product launches to navigating crises, RingoFire ensures brands earn attention, foster positive sentiment, and build lasting trust.',
-		img: 'https://ringofire.com/wp-content/uploads/2025/10/NISS_ChristmasPArade_24-11_result-scaled.webp',
+		img: "https://ringofire.com/wp-content/uploads/2025/10/NISS_ChristmasPArade_24-11_result-scaled.webp",
 	},
 ];
 
